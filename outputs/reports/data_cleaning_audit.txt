@@ -1,0 +1,13 @@
+DATA CLEANING AND AUDIT REPORT
+========================================
+Total Raw Records: 541,909
+Duplicate Records Removed: 5,268
+Total Cancelled / Refund Records: 10,587
+Admin / Fee Records Removed: 2,663
+Final Cleaned Sales Transactions: 522,717
+Transactions with Customer ID: 391,286
+Total Gross Revenue: £10,279,842.33
+Unique Customers (Identified): 4,334
+Unique Products Sold: 3,808
+Unique Countries Served: 38
+Date Span: 2010-12-01 08:26:00 to 2011-12-09 12:50:00

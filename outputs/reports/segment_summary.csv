@@ -1,0 +1,9 @@
+Customer_Segment,Customer_Count,Avg_Recency_Days,Avg_Frequency_Orders,Total_Revenue,Avg_Revenue_Per_Cust,Customer_Share_Pct,Revenue_Share_Pct
+Champions,497,7.43,15.3,4391795.59,8836.61,11.47,50.23
+Loyal Customers,818,22.89,5.71,1988277.16,2430.66,18.87,22.74
+At Risk (High Value),450,105.96,4.65,930274.84,2067.28,10.38,10.64
+Potential Loyalists,388,25.4,1.59,443874.01,1144.01,8.95,5.08
+Customers Needing Attention,878,169.24,1.86,439545.84,500.62,20.26,5.03
+Promising Regulars,743,50.19,1.64,285852.32,384.73,17.14,3.27
+Lost / Hibernating,515,263.1,1.0,255981.65,497.05,11.88,2.93
+Recent New Customers,45,9.82,1.0,8312.23,184.72,1.04,0.1

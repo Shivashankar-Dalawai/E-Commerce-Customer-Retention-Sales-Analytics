@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Analytics Executive Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- Header -->
+  <header class="bg-indigo-900 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div>
+        <div class="flex items-center space-x-3">
+          <span class="bg-indigo-600 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Live Analytics</span>
+          <h1 class="text-2xl font-bold">E-Commerce Customer Retention & Sales Analytics</h1>
+        </div>
+        <p class="text-indigo-200 text-sm mt-1">Portfolio Project · Full-Stack Python, SQL & Business Intelligence</p>
+      </div>
+      <div class="mt-4 md:mt-0 text-right">
+        <span class="text-xs text-indigo-300">Period Covered:</span>
+        <div class="font-semibold text-sm">Dec 2010 – Dec 2011 (522,717 Cleaned Orders)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+
+    <!-- KPI Summary Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      
+      <!-- Card 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Gross Revenue</div>
+        <div class="text-3xl font-extrabold text-slate-900 mt-2">£10.28M</div>
+        <div class="text-xs text-emerald-600 font-medium mt-2 flex items-center">
+          <span>▲ +138.8% growth peak in Q4 2011</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Completed Orders</div>
+        <div class="text-3xl font-extrabold text-slate-900 mt-2">22,190</div>
+        <div class="text-xs text-slate-500 mt-2">
+          From 522,717 line items
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Average Order Value</div>
+        <div class="text-3xl font-extrabold text-slate-900 mt-2">£463.26</div>
+        <div class="text-xs text-indigo-600 font-medium mt-2">
+          Median basket: £280.50
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Unique Customers</div>
+        <div class="text-3xl font-extrabold text-slate-900 mt-2">4,334</div>
+        <div class="text-xs text-amber-600 font-medium mt-2">
+          11.5% Champions drive 50.2% spend
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Charts Row 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+      
+      <!-- Monthly Revenue & MoM Growth -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold text-slate-900">Monthly Sales Revenue Trajectory</h2>
+          <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">£ Thousands</span>
+        </div>
+        <div class="h-72">
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Customer Segments Share -->
+      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold text-slate-900">Revenue Contribution by RFM Segment</h2>
+          <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">% of Total Revenue</span>
+        </div>
+        <div class="h-72">
+          <canvas id="segmentChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Key Strategic Findings & Recommendations -->
+    <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-8">
+      <h3 class="text-md font-bold text-indigo-900 mb-3 flex items-center">
+        <svg class="w-5 h-5 mr-2 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/>
+        </svg>
+        Key Executive Findings & Action Plan
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-700">
+        <div class="bg-white p-4 rounded-lg shadow-xs">
+          <div class="font-bold text-slate-900 mb-1">1. 80/20 Customer Concentration</div>
+          <p>Just <strong>1,315 customers</strong> (Champions + Loyal) produce <strong>72.97%</strong> of total company revenue. Dedicated VIP tier and early access programs are recommended to prevent attrition.</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-xs">
+          <div class="font-bold text-amber-800 mb-1">2. At-Risk High Value Alert</div>
+          <p><strong>450 high-spending customers</strong> (£1.09M past spend) are in the "At Risk" segment with >90 days since their last visit. An automated automated win-back discount email can recover an estimated ~15-20%.</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-xs">
+          <div class="font-bold text-slate-900 mb-1">3. Cohort Retention Decay</div>
+          <p>Customer retention drops sharply from 100% in Month 0 to ~32-38% in Month 1. Introducing a 14-day post-purchase re-order incentive will flatten this steep early cliff.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Country Performance Table -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200">
+        <h3 class="text-base font-bold text-slate-900">Top Geographic Markets & Return Rates</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-slate-700">
+          <thead class="bg-slate-50 text-xs uppercase font-semibold text-slate-500">
+            <tr>
+              <th class="px-6 py-3">Country</th>
+              <th class="px-6 py-3">Completed Orders</th>
+              <th class="px-6 py-3">Cancellations</th>
+              <th class="px-6 py-3">Return Rate %</th>
+              <th class="px-6 py-3">Gross Revenue (£)</th>
+              <th class="px-6 py-3">Global Share %</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-6 py-3 font-semibold text-slate-900">United Kingdom</td>
+              <td class="px-6 py-3">17,906</td>
+              <td class="px-6 py-3 text-rose-600">4,708</td>
+              <td class="px-6 py-3 font-medium">20.82%</td>
+              <td class="px-6 py-3">£8,751,490.68</td>
+              <td class="px-6 py-3 font-semibold text-indigo-600">85.13%</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-semibold text-slate-900">Netherlands</td>
+              <td class="px-6 py-3">93</td>
+              <td class="px-6 py-3 text-rose-600">6</td>
+              <td class="px-6 py-3 font-medium text-emerald-600">6.06%</td>
+              <td class="px-6 py-3">£283,889.34</td>
+              <td class="px-6 py-3">2.76%</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-semibold text-slate-900">EIRE (Ireland)</td>
+              <td class="px-6 py-3">284</td>
+              <td class="px-6 py-3 text-rose-600">72</td>
+              <td class="px-6 py-3 font-medium">20.22%</td>
+              <td class="px-6 py-3">£276,090.86</td>
+              <td class="px-6 py-3">2.69%</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-semibold text-slate-900">Germany</td>
+              <td class="px-6 py-3">443</td>
+              <td class="px-6 py-3 text-rose-600">146</td>
+              <td class="px-6 py-3 font-medium text-rose-600">24.79%</td>
+              <td class="px-6 py-3">£205,381.15</td>
+              <td class="px-6 py-3">2.00%</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-3 font-semibold text-slate-900">France</td>
+              <td class="px-6 py-3">383</td>
+              <td class="px-6 py-3 text-rose-600">69</td>
+              <td class="px-6 py-3 font-medium">15.27%</td>
+              <td class="px-6 py-3">£184,679.00</td>
+              <td class="px-6 py-3">1.80%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-6 py-8 text-center text-xs text-slate-400">
+    Designed for Data Analytics Portfolio · Python (Pandas) + SQLite + Power BI / Tableau
+  </footer>
+
+  <script>
+    // 1. Monthly Revenue Chart
+    const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(monthlyCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Dec 10', 'Jan 11', 'Feb 11', 'Mar 11', 'Apr 11', 'May 11', 'Jun 11', 'Jul 11', 'Aug 11', 'Sep 11', 'Oct 11', 'Nov 11', 'Dec 11'],
+        datasets: [{
+          label: 'Revenue (£k)',
+          data: [790, 671, 508, 691, 516, 762, 764, 715, 747, 1070, 1149, 1509, 378],
+          backgroundColor: '#4F46E5',
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: {
+            grid: { color: '#F1F5F9' },
+            ticks: { callback: v => '£' + v + 'k' }
+          },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+
+    // 2. Customer Segment Chart
+    const segmentCtx = document.getElementById('segmentChart').getContext('2d');
+    new Chart(segmentCtx, {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Champions (50.2%)', 
+          'Loyal Customers (22.7%)', 
+          'At Risk High Value (10.6%)', 
+          'Potential Loyalists (5.1%)', 
+          'Need Attention (5.0%)',
+          'Others (6.4%)'
+        ],
+        datasets: [{
+          data: [50.23, 22.74, 10.64, 5.08, 5.03, 6.28],
+          backgroundColor: [
+            '#4F46E5', '#10B981', '#F59E0B', '#6366F1', '#EC4899', '#94A3B8'
+          ],
+          borderWidth: 2,
+          borderColor: '#ffffff'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

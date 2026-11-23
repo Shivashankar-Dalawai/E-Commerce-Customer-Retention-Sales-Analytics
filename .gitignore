@@ -1,0 +1,20 @@
+# Large raw datasets (downloaded automatically via script)
+data/raw/
+data/processed/*.csv
+data/processed/*.db
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv/
+env/
+venv/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
